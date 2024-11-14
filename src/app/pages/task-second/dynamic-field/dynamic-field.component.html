@@ -1,0 +1,28 @@
+<div [formGroup]="field" class="dynamic-field">
+    <mat-form-field>
+      <mat-label>Label</mat-label>
+      <input matInput formControlName="label" placeholder="Field Label" required />
+    </mat-form-field>
+  
+    <mat-form-field *ngIf="field.get('type')?.value !== 'Checkbox'">
+      <mat-label>Placeholder</mat-label>
+      <input matInput formControlName="placeholder" />
+    </mat-form-field>
+  
+    <mat-checkbox formControlName="required">Required</mat-checkbox>
+  
+    <div *ngIf="field.get('type')?.value === 'Dropdown' || field.get('type')?.value === 'Radio'">
+      <div formArrayName="options">
+        <div *ngFor="let option of options.controls; let i = index">
+          <input matInput [formControlName]="i" placeholder="Option {{ i + 1 }}" />
+          <button mat-icon-button color="warn" (click)="removeOption(i)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        <button mat-raised-button (click)="addOption()">Add Option</button>
+      </div>
+    </div>
+  
+    <button mat-raised-button color="warn" (click)="remove.emit()">Remove Field</button>
+  </div>
+  

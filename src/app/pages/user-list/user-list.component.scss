@@ -1,0 +1,35 @@
+table {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+  
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0px;
+  }
+  
+  .section-heading {
+    margin-bottom: 0px;
+  }
+  
+  .mat-form-field {
+    margin-bottom: 5px;
+  }
+  
+  .head-btn-cnt {
+    display: flex;
+    align-items: center;
+  
+    >button {
+      &:first-child {
+        margin-right: 1rem;
+      }
+    }
+  }
+  
+  .action-column {
+    width: 100px;
+  }

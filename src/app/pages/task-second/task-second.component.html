@@ -1,0 +1,17 @@
+
+<div class="form-builder">
+    <h2>Dynamic Form Builder</h2>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div formArrayName="fields">
+          <div *ngFor="let field of fields.controls; let i = index" [formGroupName]="i">
+            <app-dynamic-field *ngIf="isFormGroup(field)"  (remove)="removeField(i)"></app-dynamic-field>
+            <!-- <app-dynamic-field *ngIf="isFormGroup(field)" [field]="field" (remove)="removeField(i)"></app-dynamic-field> -->
+          </div>
+        </div>
+        <button type="button" (click)="addField('Text')">Add Text Field</button>
+        <button type="button" (click)="addField('Dropdown')">Add Dropdown</button>
+        <button type="submit" [disabled]="form.invalid">Submit</button>
+      </form>
+      
+  </div>
+  
